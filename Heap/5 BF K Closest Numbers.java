@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class KClosestNumbersBruteForce {
 
     // Function to find the K closest numbers to target in a sorted array using brute force
