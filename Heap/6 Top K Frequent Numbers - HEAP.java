@@ -27,5 +27,9 @@ public static List<Integer> topKFrequent(int[] nums, int k) {
     while (!minHeap.isEmpty()) {
         result.add(minHeap.poll()[0]); // Add only the number, not the frequency
     }
+
+    // Reverse the result to return numbers in descending frequency order
+    Collections.reverse(result);
+
     return result;
 }

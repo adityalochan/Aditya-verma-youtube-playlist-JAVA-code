@@ -6,7 +6,7 @@ This repo consists of aditya verma youtube channel code for different section. T
 ## Dynamic Programming
 |  S.No  | Problem         |  Handwritten Notes       |  Time           | Space           |
 |-----|---------------- | --------------- | --------------- | --------------- | 
-1 | [Knapsack Recursion]() | [:blue_book:](https://drive.google.com/file/d/1DhuwI5-RWRfu1FO9_RAOnn46c5Lf687O/view?usp=sharing)  | _O(2^n)_       | _O(1)_          |
+1 | [Knapsack Recursion]() | [:blue_book:]()  | _O(2^n)_       | _O(1)_          |
 2 | [Knapsack Memoization-Top-Down]() | [:blue_book:](https://drive.google.com/file/d/1nwv4ZAAAbZrUVi8Po49grzYiJo39ibSw/view?usp=sharing)  | _O(N*W)_       | _O(N*W)_          | 
 3 | [Knapsack Bottom-Up(DP)]()| [:blue_book:](https://drive.google.com/file/d/1X8Vr_PYOwHiaBBkDtifnjcdmJ1dYPphf/view?usp=sharing)  | _O(N*W)_       | _O(N*W)_          |
 4 | [Subset sum(Knapsack Variation)]()| [:blue_book:](https://drive.google.com/file/d/18w_Sca0Jn18X4m8sjzFXpo-1Hxsu7uSt/view?usp=sharing)  | _O(N*W)_       | _O(N*W)_          |

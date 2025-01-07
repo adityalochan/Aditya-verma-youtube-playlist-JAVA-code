@@ -1,22 +1,25 @@
-// Function to find the K closest numbers to target in a sorted array using brute force
-public static List<Integer> findKClosestNumbers(int[] arr, int target, int k) {
-    // Step 1: Create a list to store pairs of (absolute difference, number)
-    List<int[]> differences = new ArrayList<>();
-
-    // Step 2: Calculate the absolute difference and store it in the list
-    for (int num : arr) {
-        int diff = Math.abs(num - target); // Compute the absolute difference
-        differences.add(new int[]{diff, num}); // Store the pair (difference, number)
+public static List<Integer> topKFrequent(int[] nums, int k) {
+    // Step 1: Create a frequency map
+    Map<Integer, Integer> frequencyMap = new HashMap<>();
+    for (int num : nums) {
+        frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
     }
 
-    // Step 3: Sort the list based on the absolute difference
-    Collections.sort(differences, (a, b) -> Integer.compare(a[0], b[0]));  // Sort by the first element (difference)
+    // Step 2: Create a list to store pairs of (frequency, number)
+    List<int[]> frequencyList = new ArrayList<>();
+    for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
+        frequencyList.add(new int[]{entry.getValue(), entry.getKey()}); // {frequency, number}
+    }
 
-    // Step 4: Extract the first K numbers from the sorted list
+    // Step 3: Sort the list based on frequency in descending order
+    Collections.sort(frequencyList, (a, b) -> Integer.compare(b[0], a[0])); // Sort by frequency (descending)
+
+    // Step 4: Extract the top K numbers
     List<Integer> result = new ArrayList<>();
     for (int i = 0; i < k; i++) {
-        result.add(differences.get(i)[1]);  // Only add the number, not the difference
+        result.add(frequencyList.get(i)[1]); // Add the number (not the frequency)
     }
 
     return result;
 }
+
