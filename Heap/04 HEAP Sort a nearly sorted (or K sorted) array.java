@@ -1,5 +1,4 @@
-public class NearlySortedArraySorter {
-    /* Function to sort a nearly sorted array using a min-heap */
+ /* Function to sort a nearly sorted array using a min-heap */
     static int[] sortNearlySortedArray(int[] arr, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         int[] result = new int[arr.length]; // Array to store the sorted result
@@ -23,4 +22,3 @@ public class NearlySortedArraySorter {
 
         return result; // Return the sorted array
     }
-}
