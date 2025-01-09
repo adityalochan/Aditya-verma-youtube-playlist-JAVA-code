@@ -1,25 +1,26 @@
-public static List<Integer> topKFrequent(int[] nums, int k) {
-    // Step 1: Create a frequency map
-    Map<Integer, Integer> frequencyMap = new HashMap<>();
-    for (int num : nums) {
-        frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
-    }
+public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        // Create a list of pairs (element, distance)
+        List<int[]> distances = new ArrayList<>();
+        for (int num : arr) {
+            distances.add(new int[]{num, Math.abs(num - x)});
+        }
 
-    // Step 2: Create a list to store pairs of (frequency, number)
-    List<int[]> frequencyList = new ArrayList<>();
-    for (Map.Entry<Integer, Integer> entry : frequencyMap.entrySet()) {
-        frequencyList.add(new int[]{entry.getValue(), entry.getKey()}); // {frequency, number}
-    }
+        // Sort the list based on distance and tie-breaking by value
+        Collections.sort(distances, (a, b) -> {
+            if (a[1] == b[1]) {
+                return Integer.compare(a[0], b[0]); // Tie-breaker: smaller value preferred
+            }
+            return Integer.compare(a[1], b[1]); // Primary sort by distance
+        });
 
-    // Step 3: Sort the list based on frequency in descending order
-    Collections.sort(frequencyList, (a, b) -> Integer.compare(b[0], a[0])); // Sort by frequency (descending)
+        // Select the first k elements
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            result.add(distances.get(i)[0]);
+        }
 
-    // Step 4: Extract the top K numbers
-    List<Integer> result = new ArrayList<>();
-    for (int i = 0; i < k; i++) {
-        result.add(frequencyList.get(i)[1]); // Add the number (not the frequency)
-    }
+        // Sort the result in ascending order
+        Collections.sort(result);
 
-    return result;
+        return result;
 }
-
