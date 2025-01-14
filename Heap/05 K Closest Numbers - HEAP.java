@@ -1,4 +1,3 @@
-
 public List<Integer> findClosestElements(int[] arr, int k, int x) {
     // Use a max-heap to maintain the closest k elements
     PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> {
