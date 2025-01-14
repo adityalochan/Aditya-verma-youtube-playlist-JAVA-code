@@ -1,28 +1,27 @@
 
-// Function to find the K closest numbers to target in a sorted array using a max-heap
-public static List<Integer> findKClosestNumbers(int[] arr, int target, int k) {
-    // Max-Heap to store pairs of (absolute difference, number)
-    PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
-            (a, b) -> Integer.compare(b[0], a[0])  // Compare based on the absolute difference (b[0] > a[0])
-    );
+public List<Integer> findClosestElements(int[] arr, int k, int x) {
+    // Use a max-heap to maintain the closest k elements
+    PriorityQueue<int[]> maxHeap = new PriorityQueue<>((a, b) -> {
+        if (b[0] == a[0]) return Integer.compare(b[1], a[1]); // Compare values if difference is the same
+        return Integer.compare(b[0], a[0]); // Compare differences in descending order
+    });
 
-    // Step 1: Iterate through the array and add elements to the max-heap
+    // Add elements to the heap
     for (int num : arr) {
-        int diff = Math.abs(num - target); // Compute the absolute difference
-        maxHeap.add(new int[]{diff, num}); // Store the pair (difference, number)
-
-        // If the heap size exceeds K, remove the element with the largest difference
+        maxHeap.offer(new int[]{Math.abs(x-num), num});
         if (maxHeap.size() > k) {
-            maxHeap.poll();
+            maxHeap.poll(); // Remove the farthest element
         }
     }
 
-    // Step 2: Extract the elements from the heap into a result list
+    // Extract elements from the heap
     List<Integer> result = new ArrayList<>();
     while (!maxHeap.isEmpty()) {
-        result.add(maxHeap.poll()[1]); // Only add the number (not the difference)
+        result.add(maxHeap.poll()[1]);
     }
 
+    // Sort the result in ascending order
+    Collections.sort(result);
     return result;
 }
 
