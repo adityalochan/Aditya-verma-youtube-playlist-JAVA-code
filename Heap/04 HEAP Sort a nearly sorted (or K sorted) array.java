@@ -25,7 +25,7 @@ static int[] insertionSort(int A[], int size) {
 }
 
 ---------------------------------------------------------------------------------------------------------------------
- // USING HEAP
+ // HEAP
 ---------------------------------------------------------------------------------------------------------------------
 /* Function to sort a nearly sorted array using a min-heap */
     static int[] sortNearlySortedArray(int[] arr, int k) {
