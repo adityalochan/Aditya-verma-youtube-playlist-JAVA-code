@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------------------------
- USING SORTING
+ //USING SORTING
 ---------------------------------------------------------------------------------------------------------------------
 static int[] insertionSort(int A[], int size) {
     // Start from the second element (index 1) because the first element (index 0) is already "sorted"
@@ -25,7 +25,7 @@ static int[] insertionSort(int A[], int size) {
 }
 
 ---------------------------------------------------------------------------------------------------------------------
- USING HEAP
+ // USING HEAP
 ---------------------------------------------------------------------------------------------------------------------
 /* Function to sort a nearly sorted array using a min-heap */
     static int[] sortNearlySortedArray(int[] arr, int k) {
