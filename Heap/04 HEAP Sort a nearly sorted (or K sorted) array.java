@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------------------------
- //USING SORTING
+ // SORTING
 ---------------------------------------------------------------------------------------------------------------------
 static int[] insertionSort(int A[], int size) {
     // Start from the second element (index 1) because the first element (index 0) is already "sorted"
