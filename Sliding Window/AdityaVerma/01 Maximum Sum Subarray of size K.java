@@ -5,20 +5,16 @@ Leetcode (closest)  :
 ----------------------------------------------------------------------------------------------------------
 public int maximumSumSubarray(int K, int[] Arr, int N) {
     int maxSum = Integer.MIN_VALUE;
-
     // Loop over all possible subarrays of size K
     for (int i = 0; i <= N - K; i++) {
         int currentSum = 0;
-
         // Sum the elements of the current subarray
         for (int j = i; j < i + K; j++) {
             currentSum += Arr[j];
         }
-
         // Update maximum sum
         maxSum = Math.max(maxSum, currentSum);
     }
-
     return maxSum;
 }
 
@@ -32,7 +28,6 @@ public int maximumSumSubarray(int K, int[] Arr, int N) {
 
     while (j < N) {
         sum += Arr[j]; // do calculation to reduce time complexity
-
         if (j - i + 1 < K) {
             j++; // increment j until window size reaches K
         } else if (j - i + 1 == K) {
