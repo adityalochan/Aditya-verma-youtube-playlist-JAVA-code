@@ -1,5 +1,5 @@
-// https://www.geeksforgeeks.org/find-maximum-minimum-sum-subarray-size-k/
-Leetcode (closest)  :
+https://www.geeksforgeeks.org/find-maximum-minimum-sum-subarray-size-k/
+Leetcode (closest) 643 – Maximum Average Subarray I
 ---------------------------------------------------------------------------------------------------------
 //  BRUTEFORCE
 ----------------------------------------------------------------------------------------------------------
