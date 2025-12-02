@@ -1,17 +1,11 @@
-// Leetcode 215 : Kth largest element in an Array
-
---------------------------------------------------------------------------------------------------------
-// SORTING
---------------------------------------------------------------------------------------------------------
-
+/*Leetcode 215 : Kth largest element in an Array*/
+/*SORTING*/
 public int findKthLargest(int[] nums, int k) {
     Arrays.sort(nums);
     return nums[nums.length-k];
 }
 
---------------------------------------------------------------------------------------------------------
- // HEAP
---------------------------------------------------------------------------------------------------------
+/*HEAP*/
 public int findKthSmallest(int[] nums, int k) {
     PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
     for (int num : nums) {
