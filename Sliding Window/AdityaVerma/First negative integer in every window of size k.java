@@ -4,17 +4,14 @@ BRUTEFORCE
 /*T:O(N * K) | S:O(1)*/
 public int[] firstNegativeBruteforce(int[] arr, int n, int k) {
     int[] result = new int[n - k + 1];
-
     for (int i = 0; i <= n - k; i++) {
-        int firstNeg = 0;
-
         for (int j = i; j < i + k; j++) {
             if (arr[j] < 0) {
-                firstNeg = arr[j];
+                result[i] = arr[j];
                 break;
             }
+            result[i] = 0;
         }
-        result[i] = firstNeg;
     }
     return result;
 }
@@ -43,6 +40,7 @@ public int[] printFirstNegativeInteger(int[] A, int N, int K) {
             j++;
         }
     }
+
     // convert List<Integer> → int[]
     int[] res = new int[ans.size()];
     for (int idx = 0; idx < ans.size(); idx++) {
