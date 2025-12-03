@@ -1,7 +1,7 @@
 ------------
 BRUTEFORCE
 ------------    
-// T: O(N*N) | S:O()
+// T:O(N*N) | S:O()
 public boolean containsDuplicate(int[] nums) {
     for(int i=0;i<nums.length;i++){
         int a=nums[i];
@@ -15,6 +15,7 @@ public boolean containsDuplicate(int[] nums) {
 ------------
 SORTING
 ------------
+// T:O() | S:O()
 public boolean containsDuplicate(int[] nums) {
     Arrays.sort(nums);
     for(int i=0;i<nums.length-1;i++){
@@ -25,7 +26,7 @@ public boolean containsDuplicate(int[] nums) {
 ----------
 HASHSET
 ----------
-// T: O() | S:O()
+// T:O() | S:O()
 public boolean containsDuplicate(int[] nums) {
     Set<Integer> hs = new HashSet<>();
     for(int num:nums){
