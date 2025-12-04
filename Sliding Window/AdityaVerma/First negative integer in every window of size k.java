@@ -22,25 +22,23 @@ SLIDING WINDOW
 public int[] printFirstNegativeInteger(int[] A, int N, int K) {
     int i = 0, j = 0;
     int[] res = new int[N - K + 1];
-    LinkedList<Integer> list = new LinkedList<>(); // stores indices of negatives
-    int idx = 0; // index for result array
+    List<Integer> list = new LinkedList<>(); // stores negative values in window
 
     while (j < N) {
-        // If current element is negative, store its index
-        if (A[j] < 0) list.addLast(j);
+        // If current element is negative, store its value
+        if (A[j] < 0) list.addLast(A[j]);
+
         // Expand window until size K
-        if (j - i + 1 < K) j++;
+        if (j - i + 1 < K) {
+            j++;
+        }
         // When window size == K
         else if (j - i + 1 == K) {
             // First negative in current window
-            if (list.isEmpty()) {
-                res[idx++] = 0;
-            } else {
-                res[idx++] = A[list.peekFirst()];
-            }
-
+            if (list.isEmpty()) res[i] = 0;
+            else res[i] = list.peekFirst();
             // Before sliding, remove element going out of window from list
-            if (!list.isEmpty() && list.peekFirst() == i) {
+            if (!list.isEmpty() && A[i] == list.peekFirst()) {
                 list.removeFirst();
             }
             // Slide the window
