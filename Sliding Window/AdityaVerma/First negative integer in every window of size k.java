@@ -29,9 +29,7 @@ public int[] printFirstNegativeInteger(int[] A, int N, int K) {
         if (A[j] < 0) list.addLast(A[j]);
 
         // Expand window until size K
-        if (j - i + 1 < K) {
-            j++;
-        }
+        if (j - i + 1 < K) j++;
         // When window size == K
         else if (j - i + 1 == K) {
             // First negative in current window
