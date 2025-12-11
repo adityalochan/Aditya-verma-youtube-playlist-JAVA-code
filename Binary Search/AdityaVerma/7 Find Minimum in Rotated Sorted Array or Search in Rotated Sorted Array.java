@@ -23,7 +23,7 @@ public int findMin(int[] nums) {
     while (start <= end) {
         int mid = start + (end - start) / 2;
         int prev = (mid + n - 1) % n; // if index is 0 , 0-1 would be negative so mid+n-1
-        int next = (mid + 1) % n; // if index was n , mid+n would be out of bound, so %n
+        int next = (mid + 1) % n; // if index was n , mid+1 would be out of bound, so %n
 
         // Check if mid is the minimum (smaller than both neighbors)
         if (nums[mid] < nums[prev] && nums[mid] < nums[next])
