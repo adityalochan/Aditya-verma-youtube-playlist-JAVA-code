@@ -1,3 +1,6 @@
+
+
+Same solution as nearest greater to left with only different of adding [NGL Element,index]
 ------------------
 BRUTEFORCE
 ------------------
@@ -21,24 +24,32 @@ public int[] calculateSpan(int[] price, int n) {
 STACK
 ------------------
 public int[] calculateSpan(int[] price, int n) {
-    int[] result = new int[n];        // store spans
-    Stack<Integer> stack = new Stack<>(); // store indices of previous higher prices
+    int[] span = new int[n];
+    Stack<int[]> stack = new Stack<>(); // {price, index}
 
     for (int i = 0; i < n; i++) {
-        if (stack.isEmpty()) { // Case 1: no previous higher price
-            result[i] = i + 1;  // span = all previous days + current day
+        // Case 1: stack empty → no greater on left
+        if (stack.isEmpty()) {
+            span[i] = -1;
         }
-        else if (price[stack.peek()] > price[i]) { // Case 2: top of stack is greater
-            result[i] = i - stack.peek();         // span = distance to previous greater
+        // Case 2: top of stack is greater than current price
+        else if (stack.peek()[0] > price[i]) {
+            span[i] = stack.peek()[1];
         }
-        else { // Case 3: top of stack <= current price
-            while (!stack.isEmpty() && price[stack.peek()] <= price[i]) {
-                stack.pop(); // remove smaller/equal prices
+        // Case 3: top of stack <= current price
+        else {
+            while (!stack.isEmpty() && stack.peek()[0] <= price[i]) {
+                stack.pop();
             }
-            result[i] = stack.isEmpty() ? i + 1 : i - stack.peek(); // calculate span
+            span[i] = stack.isEmpty() ? -1 : stack.peek()[1];
         }
-        stack.push(i); // push current index for future comparisons
+        // Push current price with index
+        stack.push(new int[]{price[i], i});
+    }
+    // Convert previous greater index → span
+    for (int i = 0; i < n; i++) {
+        span[i] = i - span[i];
     }
 
-    return result;
+    return span;
 }
