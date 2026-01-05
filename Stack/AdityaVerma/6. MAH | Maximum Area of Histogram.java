@@ -5,7 +5,11 @@
 	•	Width = right[i] - left[i] - 1
     •	Area = height[i] * width
 	•	Take max
-*/
+Eg
+ arr:    -1 6  2  5  4  5  1  6  7
+ NSR index	1  5  3  5  5  7  7
+ NSL index -1 -1  1  1  3 -1  5
+ */
 ------------------
 BRUTEFORCE
 ------------------
@@ -43,42 +47,41 @@ public long getMaxArea(long[] arr, int n) {
 
     int[] left = new int[n];   // NSL indices
     int[] right = new int[n];  // NSR indices
-    Stack<long[]> s1 = new Stack<>(); // {height, index}
-    Stack<long[]> s2 = new Stack<>();
+    Stack<long[]> stack1 = new Stack<>(); // {height, index}
+    Stack<long[]> stack2 = new Stack<>();
     int pseudoLeft = -1;
     int pseudoRight = n;
 
-    // -------- Nearest Smaller to Left --------
+    // -------- NSL: Nearest Smaller to Left --------
     for (int i = 0; i < n; i++) {
-        if (s1.isEmpty())
+        if (stack1.isEmpty())
             left[i] = pseudoLeft;
-        else if (s1.peek()[0] < arr[i]) {
-            left[i] = (int) s1.peek()[1];
+        else if (stack1.peek()[0] < arr[i]) {
+            left[i] = (int) stack1.peek()[1];
         }
         else {
-            while (!s1.isEmpty() && s1.peek()[0] >= arr[i]) {
-                s1.pop();
+            while (!stack1.isEmpty() && stack1.peek()[0] >= arr[i]) {
+                stack1.pop();
             }
-            left[i] = s1.isEmpty() ? pseudoLeft : (int) s1.peek()[1];
+            left[i] = stack1.isEmpty() ? pseudoLeft : (int) stack1.peek()[1];
         }
-        s1.push(new long[]{arr[i], i});
+        stack1.push(new long[]{arr[i], i});
     }
-
-    // -------- Nearest Smaller to Right --------
+    // --------NSR: Nearest Smaller to Right --------
     for (int i = n - 1; i >= 0; i--) {
-        if (s2.isEmpty()) {
+        if (stack2.isEmpty()) {
             right[i] = pseudoRight;
         }
-        else if (s2.peek()[0] < arr[i]) {
-            right[i] = (int) s2.peek()[1];
+        else if (stack2.peek()[0] < arr[i]) {
+            right[i] = (int) stack2.peek()[1];
         }
         else {
-            while (!s2.isEmpty() && s2.peek()[0] >= arr[i]) {
-                s2.pop();
+            while (!stack2.isEmpty() && stack2.peek()[0] >= arr[i]) {
+                stack2.pop();
             }
-            right[i] = s2.isEmpty() ? pseudoRight : (int) s2.peek()[1];
+            right[i] = stack2.isEmpty() ? pseudoRight : (int) stack2.peek()[1];
         }
-        s2.push(new long[]{arr[i], i});
+        stack2.push(new long[]{arr[i], i});
     }
 
     // -------- Calculate Maximum Area --------

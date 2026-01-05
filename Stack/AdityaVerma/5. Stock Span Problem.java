@@ -1,6 +1,9 @@
-
-
-Same solution as nearest greater to left with only different of adding [NGL Element,index]
+/*Same solution as nearest greater to left with only different of adding [NGL Element,index]
+Eg
+consecutive smaller or equal = nearest greater non consecutive (span -i)
+arr:       100 80 60 70 60 75 55
+NSR index	1  1   1  2  1  4  6
+*/
 ------------------
 BRUTEFORCE
 ------------------
@@ -50,6 +53,5 @@ public int[] calculateSpan(int[] price, int n) {
     for (int i = 0; i < n; i++) {
         span[i] = i - span[i];
     }
-
     return span;
 }
