@@ -16,7 +16,7 @@ SORTING
 -----------
 public int findKthSmallest(int[] nums, int k) {
     Arrays.sort(nums);
-    return nums[nums.length-k];
+    return nums[k-1];
 }
 
 -----------
