@@ -13,13 +13,13 @@ public int trap(int[] height) {
     int totalWater = 0;
 
     for (int i = 0; i < n; i++) {
-        int leftMax = 0;
+        int mxl = 0;
         for (int j = i; j >= 0; j--) {
-            leftMax = Math.max(leftMax, height[j]);
+            mxl = Math.max(mxl, height[j]);
         }
-        int rightMax = 0;
+        int mxr = 0;
         for (int j = i; j < n; j++) {
-            rightMax = Math.max(rightMax, height[j]);
+            mxr = Math.max(mxr, height[j]);
         }
 
         totalWater += Math.min(leftMax, rightMax) - height[i];
