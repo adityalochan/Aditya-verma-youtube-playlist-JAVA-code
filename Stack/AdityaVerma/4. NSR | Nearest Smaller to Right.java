@@ -1,5 +1,8 @@
 /*Given an array of integers, find the closest (not considering distance, but value)
-smaller on rightof every element. If an element has no smaller on the right side, print -1.*/
+smaller on rightof every element. If an element has no smaller on the right side, print -1.
+arr = [4, 5, 2, 10, 8]
+O/P :  2  2 -1  8  -1
+*/
 ------------------
 BRUTEFORCE
 ------------------

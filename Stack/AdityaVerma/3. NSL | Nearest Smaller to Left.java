@@ -1,8 +1,13 @@
-/*Given an array of integers, find the closest (not considering distance, but value)
-smaller on left of every element. If an element has no smaller on the left side, print -1 .*/
-------------------
+/*
+Given an array of integers, find the closest (not considering distance,
+but value) smaller on left of every element. If an element has no smaller
+on the left side, print -1 .
+arr = [4, 5, 2, 10, 8]
+O/P : -1 -4 -1  2  2
+*/
+--------------
 BRUTEFORCE
-------------------
+--------------
 public int[] nearestSmallerToLeft(int[] arr, int n) {
     int[] result = new int[n];
 
@@ -19,9 +24,9 @@ public int[] nearestSmallerToLeft(int[] arr, int n) {
     }
     return result;
 }
-------------------
+-------------
 STACK
-------------------
+-------------
 public int[] nearestSmallerToLeft(int[] arr, int n) {
     int[] result = new int[n];
     Stack<Integer> stack = new Stack<>(); // stack for elements

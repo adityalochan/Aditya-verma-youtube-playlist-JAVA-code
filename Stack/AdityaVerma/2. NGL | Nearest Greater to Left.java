@@ -1,3 +1,9 @@
+/*Given an array of integers, find the closest (not considering distance, but value)
+greater on left of every element. If an element has no greater on the left side,
+print -1 .
+arr = [1, 3, 2, 4]
+O/P : -1 -1  3  -1
+*/
 ------------------
 BRUTEFORCE
 ------------------
@@ -6,7 +12,6 @@ public int[] nearestGreaterToLeft(int[] arr, int n) {
 
     for (int i = 0; i < n; i++) {
         result[i] = -1;  // default if no greater exists
-
         // Scan left side
         for (int j = i - 1; j >= 0; j--) {
             if (arr[j] > arr[i]) {

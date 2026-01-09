@@ -1,4 +1,15 @@
-/*Same solution as nearest greater to left with only different of adding [NGL Element,index]
+/*
+The stock span problem is a financial problem where we have a series of n daily
+price quotes for a stock and we need to calculate span of stock’s price for all n days.
+The span Si of the stock’s price on a given day i is defined as the maximum number
+of consecutive days just before the given day, for which the price of the stock on
+the current day is less than or equal to its price on the given day.
+For example, if an array of 7 days prices is given as arr the span values for corresponding
+7 days are O/P
+arr = [100, 80, 60, 70, 60, 75, 85]
+O/P = [1,   1,   1,  2,  1,  4,  6]
+Same solution as nearest greater to left with only different of adding [NGL Element,index]
+ */
 Eg
 consecutive smaller or equal = nearest greater non consecutive (span -i)
 arr:       100 80 60 70 60 75 55
@@ -8,20 +19,22 @@ NSR index	1  1   1  2  1  4  6
 BRUTEFORCE
 ------------------
 public int[] calculateSpan(int[] price, int n) {
-    int[] result = new int[n];
-
+    int[] span = new int[n];
+    // Step 1: find previous greater index
     for (int i = 0; i < n; i++) {
-        result[i] = -1; // default value
-        int count = 1; // at least today counts
+        span[i] = -1; // default: no greater on left
         for (int j = i - 1; j >= 0; j--) {
-            if (price[j] <= price[i])
-                count++;
-            else
-                break; // stop at first greater price
+            if (price[j] > price[i]) {
+                span[i] = j;  // store index of previous greater
+                break;        // nearest → stop
+            }
         }
-        result[i] = count;
     }
-    return result;
+    // Step 2: convert index to span
+    for (int i = 0; i < n; i++) {
+        span[i] = i - span[i];
+    }
+    return span;
 }
 ------------------
 STACK

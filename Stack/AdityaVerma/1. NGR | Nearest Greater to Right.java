@@ -5,7 +5,10 @@ The Next Greater Element for an element x is defined as the first element to the
 of x in the array that is strictly greater than x.
 If no such element exists for an element, its Next Greater Element is -1.
 https://www.geeksforgeeks.org/dsa/next-greater-element/
-Closest Leetcode 496 */
+Closest Leetcode 496
+arr = [1, 3, 0, 0, 1, 2, 4]
+O/P :  3  4  0  1  2  4  1
+ */
 ------------------
 BRUTEFORCE
 ------------------

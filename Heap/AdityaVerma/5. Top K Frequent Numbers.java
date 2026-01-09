@@ -1,6 +1,17 @@
---------------------------------------------------------------------------------------------------------------
- // BRUTEFORCE 
---------------------------------------------------------------------------------------------------------------
+/*
+Given an array of n numbers. Your task is to read numbers from the array and keep at-most
+K numbers at the top (According to their decreasing frequency) every time a new number is
+read. We basically need to print top k numbers sorted by frequency when input stream has
+included k distinct elements, else need to print all distinct elements sorted by frequency.
+
+Example:
+Input :  arr[] = {5, 2, 1, 3, 2}
+k = 4
+Output : 5 2 5 1 2 5 1 2 3 5 2 1 3 5
+*/
+-------------
+ BRUTEFORCE
+-------------
 public static List<Integer> topKFrequent(int[] nums, int k) {
     // Step 1: Count the frequency of each number
     Map<Integer, Integer> freq = new HashMap<>();
@@ -22,10 +33,9 @@ public static List<Integer> topKFrequent(int[] nums, int k) {
     return result;
 }
 
---------------------------------------------------------------------------------------------------------------
- // HEAP 
---------------------------------------------------------------------------------------------------------------
-
+------------
+ HEAP
+------------
 public static List<Integer> topKFrequent(int[] nums, int k) {
     // Step 1: Count the frequency of each number using a HashMap
     Map<Integer, Integer> frequencyMap = new HashMap<>();
@@ -58,6 +68,5 @@ public static List<Integer> topKFrequent(int[] nums, int k) {
 
     // Reverse the result to return numbers in descending frequency order
     Collections.reverse(result);
-
     return result;
 }
