@@ -1,14 +1,18 @@
 /*Famous stack problem
+Find the largest rectangular area possible in a given histogram where the largest
+rectangle can be made of a number of contiguous bars. For simplicity, assume that
+all bars have same width and the width is 1 unit.
+Eg
+ arr:    -1 6  2  5  4  5  1  6  7
+ NSR index	1  5  3  5  5  7  7
+ NSL index -1 -1  1  1  3 -1  5
+
     Key idea recap
 	•	Find Nearest Smaller to Left (NSL) → indices
 	•	Find Nearest Smaller to Right (NSR) → indices
 	•	Width = right[i] - left[i] - 1
     •	Area = height[i] * width
 	•	Take max
-Eg
- arr:    -1 6  2  5  4  5  1  6  7
- NSR index	1  5  3  5  5  7  7
- NSL index -1 -1  1  1  3 -1  5
  */
 ------------------
 BRUTEFORCE
