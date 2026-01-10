@@ -26,10 +26,12 @@ public int largestRectangleArea(int[] heights) {
         int left = i;
         int right = i;
 
-        // Expand to the left
+        /*Expand to the left. We use heights[left] >= height unlike NSL logic bcz
+        It keeps expanding while bars are tall enough to support the rectangle*/
         while (left >= 0 && heights[left] >= height)
             left--;
-        // Expand to the right
+        /*Expand to the right We use heights[left] >= height unlike NSL logic bcz
+        It keeps expanding while bars are tall enough to support the rectangle*/
         while (right < n && heights[right] >= height)
             right++;
 

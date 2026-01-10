@@ -1,5 +1,11 @@
 
 /*
+Exactly same as MAH with only addition of computing binary matrix where
+each row is treated as historgram
+        0,1,1,0
+        1,1,1,1
+        1,1,1,1
+        1,1,0,0
 1.	Treat each row as a histogram
 	2.	For every row:
         •	Update histogram heights
